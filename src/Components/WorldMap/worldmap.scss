@@ -1,0 +1,22 @@
+.worldMap {
+    height: 580px;
+    background: black;
+}
+.worldMapEntity {
+    position: absolute;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.worldMapEntity:hover {
+    transform: scale(1.1);
+}
+.worldMapEntity-name {
+    display: inline-block;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    padding: 3px;
+    min-width: 100px;
+    position: absolute;
+    background: linear-gradient(90deg, transparent, white, white, transparent);
+}
