@@ -1,9 +1,9 @@
 import KKWAE from '../../Tools/KKWAE';
 import React from 'react';
 import './index.scss';
-import { Menu } from '../../Components/Menu/Menu';
-import { WorldMap } from '../../Components/WorldMap/WorldMap';
-import { TooltipRenderer } from '../../Components/Tooltip/Tooltip';
+import { Menu } from '../../Components/Menu';
+import { WorldMap } from '../../Components/WorldMap';
+import { TooltipRenderer } from '../../Components/Tooltip';
 
 
 export default class Index extends KKWAE {

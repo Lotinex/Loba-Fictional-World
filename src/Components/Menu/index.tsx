@@ -3,7 +3,7 @@ import React from 'react';
 
 import './menu.scss';
 import {boundClass} from 'autobind-decorator';
-import { TextTooltip, Tooltip } from "../Tooltip/Tooltip";
+import { TextTooltip, Tooltip } from "../Tooltip";
 
 
 const menuItems = [

@@ -35,6 +35,10 @@ module.exports = {
         options: {
           name: '[path][name].[ext]'
         }
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ],
   },

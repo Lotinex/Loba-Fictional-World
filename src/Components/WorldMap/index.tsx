@@ -8,7 +8,7 @@ import Reverse from './assets/reverse.png';
 import LobaPlanet from './assets/loba_planet.png';
 import Universe from './assets/universe.png';
 
-import { TextTooltip, Tooltip } from '../Tooltip/Tooltip';
+import { TextTooltip, Tooltip } from '../Tooltip';
 
 export class WorldMapEntity extends KKWAE<Attrib.Prop.WorldMapEntity> {
     render(){
