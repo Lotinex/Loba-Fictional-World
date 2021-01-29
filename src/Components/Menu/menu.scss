@@ -19,7 +19,8 @@
     height: 100%;
     transition: 0.5s;
     cursor: pointer;
-    background: rgb(125,125,125);
+    background: black;
+    border-right: 1px solid white;
     transition: 0.3s;
     z-index: 2;
 }

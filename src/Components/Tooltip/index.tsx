@@ -3,6 +3,9 @@ import React from 'react';
 import KKWAE from '../../Tools/KKWAE';
 
 
+type TooltipContent = {
+    
+}
 export abstract class Tooltip<P = {}, S = {}> extends KKWAE<P, S> {
     static register(tooltip: TypeUtil.ClassType<Tooltip>, value: any): {onMouseMove: (e: React.MouseEvent) => void, onMouseEnter: () => void, onMouseLeave: () => void} {
         return {

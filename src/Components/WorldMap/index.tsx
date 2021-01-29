@@ -23,9 +23,34 @@ export function WorldMapEntityName(name: string, x: number, y: number) {
     };
 }
 @boundClass
-export class WorldMapEntity extends KKWAE<Attrib.Prop.WorldMapEntity> {
+export class WorldMapEntity extends KKWAE<Attrib.Prop.WorldMapEntity, Attrib.State.WorldMapEntity> {
+    state: Attrib.State.WorldMapEntity = {
+        zoom: false,
+        x: this.props.x,
+        y: this.props.y,
+        w: this.props.w,
+        h: this.props.h
+    };
+    static ZoomMoveValue = 300;
+    ActionSynapse: KKWAE.Actions = {
+        '@zoom-in': (x, y) => {
+            if(x == this.state.x && y == this.state.y) {
+                this.setState({w: this.state.w * 2, h: this.state.h * 2})
+                return this.setState({x: this.state.x + this.state.w, y: this.state.y + this.state.h});
+            }
+            let xDiff = x - this.state.x;
+            let yDiff = y = this.state.y;
+            if(xDiff > 0) this.setState({x: this.state.x - WorldMapEntity.ZoomMoveValue})
+            if(xDiff < 0) this.setState({x: this.state.x + WorldMapEntity.ZoomMoveValue})
+            if(yDiff > 0) this.setState({y: this.state.y + WorldMapEntity.ZoomMoveValue})
+            if(yDiff < 0) this.setState({y: this.state.y - WorldMapEntity.ZoomMoveValue})
+        }
+    };
     goToExplanationPage(target: string): void {
         changePage('areas')
+    }
+    zoomIn(): void {
+        KKWAE.trigger('@zoom-in', this.props.x, this.props.y)
     }
     render(){
         return (
@@ -33,9 +58,9 @@ export class WorldMapEntity extends KKWAE<Attrib.Prop.WorldMapEntity> {
             <img 
                 src={this.props.img} 
                 className="worldMapEntity" 
-                style={{left:`${this.props.x}px`, top:`${this.props.y}px`, width:`${this.props.w}px`, height:`${this.props.h}px`}}
+                style={{left:`${this.state.x}px`, top:`${this.state.y}px`, width:`${this.state.w}px`, height:`${this.state.h}px`}}
                 {...Tooltip.register(TextTooltip, this.props.desc)}
-                onClick={() => this.goToExplanationPage(this.props.name)}
+                onClick={this.zoomIn}
             />
             <div className="worldMapEntity-name"  {...Tooltip.register(TextTooltip, this.props.desc)} style={{left:`${this.props.nameX}px`, top:`${this.props.nameY}px`}}>{this.props.name}</div>
             </>

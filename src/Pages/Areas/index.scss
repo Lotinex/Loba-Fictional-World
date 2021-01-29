@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 #stage {
     min-height: 100%;
@@ -15,6 +15,7 @@ html, body {
     height: auto;
     border-radius: 7px;
     margin-bottom: 30px;
+    position: relative;
 }
 .area-body {
     margin-top: 15px;
@@ -24,20 +25,25 @@ html, body {
     padding: 5px;
     font-size: 20px;
     font-weight: bold;
-    border-bottom: 2px solid black;
+    background: linear-gradient(90deg, black, black, transparent);
+}
+.area-name {
+    color: white;
+    margin-left: 60px;
 }
 .area-description {
     margin-left: 10px;
+    padding: 10px;
 }
 .area-show-button {
     cursor: pointer;
     padding: 5px;
     margin-left: 10px;
-    color: blue;
+    color: white;
     transition: 0.1s;
 }
 .area-show-button:hover {
-    background: rgba(0,0,0,0.4);
+    text-shadow: 0px 0px 2px white;
 }
 .area-additional {
     width: 800px;
@@ -50,13 +56,22 @@ html, body {
 }
 .area-type {
     margin-right: 10px;
-    color: white;
-    background: rgba(0,0,0,0.9);
+    color: black;
+    background: white;
+    border: 2px solid black;
     padding: 5px;
-    width: 20px;
-    text-align: center;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-left: -18px;
     cursor: help;
     transition: 0.2s;
+    border-radius: 50%;
 }
 .area-type:hover {
     transform: scale(1.1);

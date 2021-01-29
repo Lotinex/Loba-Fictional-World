@@ -26,6 +26,10 @@ declare namespace Attrib {
             sub?: boolean;
             type: 'star' | 'planet' | 'other';
         }
+        interface Reference {
+            icon: string;
+            tooltip: TypeUtil.ClassType<import("../Components/Tooltip").Tooltip>;
+        }
     }
     namespace State {
         interface Menu {
@@ -39,6 +43,13 @@ declare namespace Attrib {
         }
         interface Area {
             showAdditional: boolean;
+        }
+        interface WorldMapEntity {
+            zoom: boolean;
+            x: number;
+            y: number;
+            w: number;
+            h: number;
         }
     }
 }

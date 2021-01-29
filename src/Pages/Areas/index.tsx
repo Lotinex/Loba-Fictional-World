@@ -29,7 +29,7 @@ export class Area extends KKWAE<Attrib.Prop.Area, Attrib.State.Area> {
             <div className={`area ${this.props.sub ? 'sub-area' : ''} ${this.state.showAdditional ? 'show-actived' : ''}`}>
                 <div className="area-title">
                     <span className={`area-type fas fa-${Area.AreaTypeIcon[this.props.type]}`} {...Tooltip.register(TextTooltip, L.dprocess(`area_icon_${this.props.type}`))}/>
-                    {this.props.name}
+                    <span className="area-name">{this.props.name}</span>
                     {
                         this.props.additional ? 
                         <span 
