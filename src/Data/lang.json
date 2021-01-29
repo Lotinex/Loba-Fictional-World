@@ -1,3 +1,12 @@
 {
-    "test": "Asdasdf"
+    "loba_planet_description": "태초의 낙원에서 이주한 로바인들이 거주하고 있는 행성.",
+    "reverse_description": "로바계의 아랫 부분이 떼어져 나온 형태로 공중에 떠 유지되고 있는 정체불명의 섬. 리버시안이 거주하고 있다.",
+    "universe_description": "인류가 존재하고 있는 우주. 수많은 우주 중 하나였지만 전쟁 이후 여러 우주가 파괴되면서 거의 유일하게 남은 소우주 중 하나가 되었다.",
+    "lourde_description": "막대한 마력을 품고 있던 얼음이 존재했었던 행성. 모종의 사건 이후로 붕괴하여 거대한 균열이 되었다.",
+    "old_lourde_description": "한 영웅의 죽음에 의해 마력이 깃든 얼음이 대량으로 뒤덮이게 된 정체불명의 고대 행성.",
+
+    "additional_number_info": "{#0} 개의 추가적인 모습이 있습니다.",
+    "area_icon_star": "항성",
+    "area_icon_planet": "행성",
+    "area_icon_other": "기타"
 }

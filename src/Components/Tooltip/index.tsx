@@ -7,7 +7,7 @@ export abstract class Tooltip<P = {}, S = {}> extends KKWAE<P, S> {
     static register(tooltip: TypeUtil.ClassType<Tooltip>, value: any): {onMouseMove: (e: React.MouseEvent) => void, onMouseEnter: () => void, onMouseLeave: () => void} {
         return {
             onMouseMove: (e: React.MouseEvent)=>{
-                KKWAE.trigger('@tooltip-move', e.pageX, e.pageY)
+                KKWAE.trigger('@tooltip-move', e.clientX, e.clientY)
             },
             onMouseEnter: ()=>{
                 KKWAE.trigger('@tooltip', tooltip, value)

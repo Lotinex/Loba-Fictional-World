@@ -2,10 +2,10 @@
     position: fixed;
     width: 250px;
     height: 100%;
-    box-shadow: 1px 3px 6px gray;
     transition: 0.5s;
     z-index: 1;
     background: white;
+    border-right: 1px solid black;
 }
 .menu-hover {
     color: white;
@@ -17,7 +17,6 @@
     left:0;
     width: 25px;
     height: 100%;
-    box-shadow: 1px 3px 6px gray;
     transition: 0.5s;
     cursor: pointer;
     background: rgb(125,125,125);

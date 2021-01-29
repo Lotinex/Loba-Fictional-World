@@ -35,15 +35,12 @@ module.exports = {
         options: {
           name: '[path][name].[ext]'
         }
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
       }
     ],
   },
   plugins: [new HtmlWebpackPlugin({
-    template: 'dist/index.html'
+    template: 'dist/index.html',
+    inject: false
   })],
   devServer: {
       port: 7010

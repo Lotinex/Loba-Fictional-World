@@ -14,7 +14,7 @@ declare namespace KKWAE {
         [key in keyof KKWAE.NeuronDatas]: (prev: KKWAE.NeuronDatas[key], curr: KKWAE.NeuronDatas[key]) => void;
     };
     type Actions = Partial<{
-        '@tooltip': (tooltip: TypeUtil.ClassType<import("../Components/Tooltip/Tooltip").Tooltip>, data: any) => void;
+        '@tooltip': (tooltip: TypeUtil.ClassType<import("../Components/Tooltip").Tooltip>, data: any) => void;
         '@tooltip-move': (x: number, y: number) => void;
         '@tooltip-off': () => void;
     }>

@@ -6,11 +6,15 @@
     position: absolute;
     transition: 0.3s;
     cursor: pointer;
+    user-select: none;
+    
 }
 .worldMapEntity:hover {
     transform: scale(1.1);
 }
 .worldMapEntity-name {
+    cursor: help;
+    user-select: none;
     display: inline-block;
     text-align: center;
     color: black;

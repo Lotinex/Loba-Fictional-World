@@ -1,7 +1,11 @@
 html, body {
-    height: 100%;
+    min-height: 100%;
     padding: 0;
     margin: 0;
+    overflow: auto;
+}
+#stage {
+    min-height: 100%;
 }
 .header {
     padding-top: 20px;
@@ -9,6 +13,10 @@ html, body {
     height: 150px;
     border-bottom: 1px solid black;
     background: rgb(43, 41, 41);
+}
+.middle {
+    height: 300px;
+    background: rgb(179, 174, 174);
 }
 .header-title {
     font-size: 35px;

@@ -14,6 +14,17 @@ declare namespace Attrib {
             img: string;
             desc: string;
             name: string;
+
+            nameX: number;
+            nameY: number;
+        }
+        interface Area {
+            img: string;
+            name: string;
+            description: string;
+            additional?: Array<JSX.Element>;
+            sub?: boolean;
+            type: 'star' | 'planet' | 'other';
         }
     }
     namespace State {
@@ -21,10 +32,13 @@ declare namespace Attrib {
             active: boolean;
         }
         interface TooltipRenderer {
-            currentTooltip: TypeUtil.ClassType<import("../Components/Tooltip/Tooltip").Tooltip> | null;
+            currentTooltip: TypeUtil.ClassType<import("../Components/Tooltip").Tooltip> | null;
             tooltipX?: number;
             tooltipY?: number;
             tooltipData?: any;
+        }
+        interface Area {
+            showAdditional: boolean;
         }
     }
 }
