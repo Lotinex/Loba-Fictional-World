@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     margin: 0;
     overflow: auto;
+    background: black;
 }
 #stage {
     min-height: 100%;
@@ -33,4 +34,45 @@ html, body {
     text-align: center;
     padding: 5px;
     background: linear-gradient(90deg, transparent, black, black, transparent);
+}
+.areaInfo {
+    user-select: none;
+    position: fixed;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    animation: 500ms areaInfoAppear forwards;
+    border: 1px solid white;
+}
+@keyframes areaInfoAppear {
+    from {
+        right: -300px;
+    }
+    to {
+        right: 0px;
+    }
+}
+.areaInfo-head {
+    height: 200px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.areaInfo-img {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    position: absolute;
+    filter: blur(5px);
+}
+.areaInfo-name {
+    position: absolute;
+    font-size: 35px;
+    font-weight: bold;
+    z-index: 1;
+    min-width: 100px;
+    text-align: center;
+    color: white;
 }

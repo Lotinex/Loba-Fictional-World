@@ -1,11 +1,16 @@
 import './reference.scss';
 import React from 'react';
 import KKWAE from '../../Tools/KKWAE';
+import { CharacterTooltip, Tooltip } from '../Tooltip';
 
-export class Reference extends KKWAE<Attrib.Prop.Reference> {
+export class CharacterReference extends KKWAE<Attrib.Prop.Reference> {
     render(){
         return (
-            <span className="reference">{this.props.icon ? <i className={`fas fa-${this.props.icon}`} /> : null}{this.props.children}</span>
+            <span className="char-reference" {...Tooltip.register(CharacterTooltip, {
+                img: '',
+                desc: 'asdf',
+                name: '엘더'
+            })}><img className="char-reference-img" src={this.props.icon}></img>{this.props.children}</span>
         )
     }
 }

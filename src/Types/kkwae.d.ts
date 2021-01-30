@@ -17,6 +17,6 @@ declare namespace KKWAE {
         '@tooltip': (tooltip: TypeUtil.ClassType<import("../Components/Tooltip").Tooltip>, data: any) => void;
         '@tooltip-move': (x: number, y: number) => void;
         '@tooltip-off': () => void;
-        '@zoom-in': (x: number, y: number) => void;
+        '@view-info': (name: Loba.Areas) => void;
     }>
 }

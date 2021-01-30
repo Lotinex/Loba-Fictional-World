@@ -8,5 +8,11 @@
     "additional_number_info": "{#0} 개의 추가적인 모습이 있습니다.",
     "area_icon_star": "항성",
     "area_icon_planet": "행성",
-    "area_icon_other": "기타"
+    "area_icon_other": "기타",
+
+
+    "char_reversian_name": "리버시안",
+    "char_reversian_desc": "등록된 설명이 없습니다.",
+
+    "goto_target_info": "클릭하여 {#0} 에 대한 설명으로 이동"
 }

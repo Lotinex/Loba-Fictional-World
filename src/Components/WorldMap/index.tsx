@@ -4,11 +4,12 @@ import React from 'react';
 import {boundClass} from 'autobind-decorator';
 import KKWAE from '../../Tools/KKWAE';
 
-import Reverse from './assets/reverse.png';
-import LobaPlanet from './assets/loba_planet.png';
-import Universe from './assets/universe.png';
-import Lourde from './assets/lourde.png';
-import ArkCube from './assets/arkcube.png';
+import LobaPlanet from '../../Assets/Areas/loba_planet.png';
+import Reverse from '../../Assets/Areas/reverse.png';
+import Universe from '../../Assets/Areas/universe.png';
+import Lourde from '../../Assets/Areas/lourde.png';
+import ArkCube from '../../Assets/Areas/arkcube.png';
+import OldLourde from '../../Assets/Areas/old_lourde.png';
 
 import { TextTooltip, Tooltip } from '../Tooltip';
 import { changePage } from '../../Tools/PageRender';
@@ -25,32 +26,16 @@ export function WorldMapEntityName(name: string, x: number, y: number) {
 @boundClass
 export class WorldMapEntity extends KKWAE<Attrib.Prop.WorldMapEntity, Attrib.State.WorldMapEntity> {
     state: Attrib.State.WorldMapEntity = {
-        zoom: false,
         x: this.props.x,
         y: this.props.y,
         w: this.props.w,
         h: this.props.h
     };
-    static ZoomMoveValue = 300;
-    ActionSynapse: KKWAE.Actions = {
-        '@zoom-in': (x, y) => {
-            if(x == this.state.x && y == this.state.y) {
-                this.setState({w: this.state.w * 2, h: this.state.h * 2})
-                return this.setState({x: this.state.x + this.state.w, y: this.state.y + this.state.h});
-            }
-            let xDiff = x - this.state.x;
-            let yDiff = y = this.state.y;
-            if(xDiff > 0) this.setState({x: this.state.x - WorldMapEntity.ZoomMoveValue})
-            if(xDiff < 0) this.setState({x: this.state.x + WorldMapEntity.ZoomMoveValue})
-            if(yDiff > 0) this.setState({y: this.state.y + WorldMapEntity.ZoomMoveValue})
-            if(yDiff < 0) this.setState({y: this.state.y - WorldMapEntity.ZoomMoveValue})
-        }
-    };
     goToExplanationPage(target: string): void {
         changePage('areas')
     }
-    zoomIn(): void {
-        KKWAE.trigger('@zoom-in', this.props.x, this.props.y)
+    viewInfo(name: string): void {
+        KKWAE.trigger('@view-info', name)
     }
     render(){
         return (
@@ -60,7 +45,7 @@ export class WorldMapEntity extends KKWAE<Attrib.Prop.WorldMapEntity, Attrib.Sta
                 className="worldMapEntity" 
                 style={{left:`${this.state.x}px`, top:`${this.state.y}px`, width:`${this.state.w}px`, height:`${this.state.h}px`}}
                 {...Tooltip.register(TextTooltip, this.props.desc)}
-                onClick={this.zoomIn}
+                onClick={() => this.viewInfo(this.props.name)}
             />
             <div className="worldMapEntity-name"  {...Tooltip.register(TextTooltip, this.props.desc)} style={{left:`${this.props.nameX}px`, top:`${this.props.nameY}px`}}>{this.props.name}</div>
             </>

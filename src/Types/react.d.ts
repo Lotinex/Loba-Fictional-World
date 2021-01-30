@@ -2,9 +2,27 @@ declare module '*.png';
 declare module '*.mp3';
 declare namespace Attrib {
     namespace Prop {
+        interface AreaProperty {
+            property: string;
+            value: string;
+        }
+        interface AreaAssociatedChar {
+            img: string;
+            id: string;
+        }
         interface TextTooltip {
             x: number;
             y: number;
+            data: string;
+        }
+        interface CharacterTooltip {
+            x: number;
+            y: number;
+            data: {
+                img: string;
+                desc: string;
+                name: string;
+            }
         }
         interface WorldMapEntity {
             x: number;
@@ -24,11 +42,11 @@ declare namespace Attrib {
             description: string;
             additional?: Array<JSX.Element>;
             sub?: boolean;
-            type: 'star' | 'planet' | 'other';
+            type: Loba.AreaTypes;
+            associatedChars?: JSX.Element[];
         }
         interface Reference {
             icon: string;
-            tooltip: TypeUtil.ClassType<import("../Components/Tooltip").Tooltip>;
         }
     }
     namespace State {
@@ -45,11 +63,13 @@ declare namespace Attrib {
             showAdditional: boolean;
         }
         interface WorldMapEntity {
-            zoom: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
+        }
+        interface Index {
+            viewInfoName?: Loba.AreaNames;
         }
     }
 }
