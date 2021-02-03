@@ -11,7 +11,8 @@ const menuItems = [
     {icon: 'fas fa-map', text: '월드맵'},
     {icon: 'fas fa-user', text: '등장인물'},
     {icon: 'fas fa-hat-wizard', text: '설정 및 능력'},
-    {icon: 'fas fa-mountain', text: '지역'}
+    {icon: 'fas fa-mountain', text: '지역'},
+    {icon: 'fas fa-gamepad', text: '커넬로우'}
 ];
 @boundClass
 export class Menu extends KKWAE<{}, Attrib.State.Menu> {
@@ -36,6 +37,9 @@ export class Menu extends KKWAE<{}, Attrib.State.Menu> {
                 break;
             case '지역':
                 changePage('areas')
+                break;
+            case '커넬로우':
+                changePage('connellow')
                 break;
         }
     }

@@ -1,0 +1,184 @@
+html, body {
+    overflow: auto;
+}
+.game-title-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(1, 4, 36); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.game-title {
+    color: white;
+    font-size: 45px;
+}
+.game-subtitle {
+    color: white;
+    font-size: 25px;
+}
+.game-start {
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: rgba(56,192,255,0.3);
+    border: rgba(56,192,255,0.7);
+    border-radius: 20px;
+    margin-top: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.game-start:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+.game {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(1, 4, 36); 
+}
+.profile {
+    position: absolute;
+    background: rgba(56,192,255,0.3);
+    border-radius: 7px;
+    width: 500px;
+    height: 130px;
+    bottom: 0;
+    margin-left: 100px;
+    margin-bottom: 70px;
+    padding: 15px;
+    display: flex;
+}
+.profile-img {
+    width: 100px;
+    height: 100px;
+}
+.profile-title {
+    height: 70px;
+}
+.profile-name {
+    color: white;
+    font-size: 20px;
+}
+.profile-lv {
+    color: yellow;
+    margin-left: 5px;
+}
+.profile-head {
+    height: 100%;
+    border-right: 2px solid rgba(56,192,255,0.5);
+    padding-right: 20px;
+}
+.profile-body {
+    height: 100%;
+    padding: 10px;
+}
+.pure-button {
+    width: 370px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.open-inventory {
+    background: rgba(34, 111, 255, 0.3);
+}
+.open-skills {
+    background: rgba(185, 34, 255, 0.3);
+    margin-top: 10px;
+}
+.pure-button:hover {
+    opacity: 0.7;
+}
+.pure-button > i {
+    margin-right: 10px;
+}
+.stages-title {
+    color: white;
+    font-size: 35px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top: 30px;
+    width: 400px;
+    text-align: center;
+    height: 30px;
+}
+.stages {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top: 100px;
+    width: 1300px;
+    height: 300px;
+    padding: 30px;
+    padding-bottom: 50px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    align-items: center;
+    display: flex;
+}
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.stage:hover {
+    opacity: 0.8;
+}
+.stage-img {
+    width: 200px;
+    height: 200px;
+}
+.stage-name {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+.stage-name-selected {
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 30px;
+    min-width: 170px;
+    background: linear-gradient(90deg, transparent,white,white, transparent);
+    color: black;
+}
+.go {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+    border-radius: 20px;
+    height: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(45, 255, 209, 0.3);
+}

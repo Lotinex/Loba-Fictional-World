@@ -8,7 +8,7 @@ module.exports = {
   entry: "./src/Main.tsx",
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "index.js",
+    filename: "index.js"
   },
   devtool: "source-map",
   module: {
@@ -43,6 +43,7 @@ module.exports = {
     inject: false
   })],
   devServer: {
-      port: 7010
+      port: 7010,
+      historyApiFallback: true
   }
 };

@@ -1,0 +1,68 @@
+.dialog {
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid white;
+    pointer-events: all;
+    padding: 5px;
+}
+.dialog-appear {
+    animation: dialogAppear 300ms forwards;
+}
+.dialog-disappear {
+    animation: dialogDisappear 300ms forwards;
+}
+@keyframes dialogDisappear {
+    from {
+        transform: scale(1.0);
+    }
+    to {
+        transform: scale(0.3);
+    }
+}
+@keyframes dialogAppear {
+    from {
+        transform: scale(0.3);
+    }
+    to {
+        transform: scale(1.0);
+    }
+}
+.dialog-head {
+    height: 30px;
+    display: flex;
+    padding: 3px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+.dialog-body {
+    padding: 10px;
+    color: white;
+}
+.dialog-title {
+    color: white;
+    font-size: 20px;
+}
+.dialog-close {
+    position: absolute;
+    right: 0;
+    margin-right: 5px;
+    color: white;
+    cursor: pointer;
+}
+.dialog-close:hover {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+.dialog-renderer {
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    pointer-events: none;
+    z-index: 28;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

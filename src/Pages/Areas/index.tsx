@@ -40,7 +40,7 @@ export class Area extends KKWAE<Attrib.Prop.Area, Attrib.State.Area> {
     };
     render(){
         return (
-            <div className={`area ${this.props.sub ? 'sub-area' : ''} ${this.state.showAdditional ? 'show-actived' : ''}`}>
+            <div className={`area ${this.props.sub ? 'sub-area' : ''}${this.state.showAdditional ? 'show-actived' : ''}`}>
                 <div className="area-title">
                     <span className={`area-type fas fa-${Area.AreaTypeIcon[this.props.type]}`} {...Tooltip.register(TextTooltip, L.dprocess(`area_icon_${this.props.type}`))}/>
                     <span className="area-name">{this.props.name}</span>
@@ -59,11 +59,7 @@ export class Area extends KKWAE<Attrib.Prop.Area, Attrib.State.Area> {
                     <img className="area-img" src={this.props.img} width={200} height={200} />
                     <div className="area-description">{this.props.description}</div>
                 </div>
-                {
-                    this.props.additional ? 
-                    <div className="area-additional">{this.state.showAdditional ? this.props.additional : null}</div>
-                    : null
-                }
+                <div className="area-additional">{this.state.showAdditional ? this.props.additional : null}</div>
             </div>
         )
     }
@@ -88,3 +84,4 @@ export default class Areas extends KKWAE {
         )
     }
 }
+

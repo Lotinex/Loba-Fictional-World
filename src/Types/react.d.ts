@@ -2,6 +2,24 @@ declare module '*.png';
 declare module '*.mp3';
 declare namespace Attrib {
     namespace Prop {
+        interface SpaceBackground {
+            distance: number;
+        }
+        interface Stage {
+            img: string;
+            name: Loba.AreaNames;
+            index: number;
+            changeSelectedStage: (stage: Loba.AreaNames) => void;
+        }
+        interface Dialog {
+            title: string;
+            width: number;
+            height: number;
+        }
+        interface PureButton {
+            className: string;
+            icon: string;
+        }
         interface AreaProperty {
             property: string;
             value: string;
@@ -31,7 +49,7 @@ declare namespace Attrib {
             h: number;
             img: string;
             desc: string;
-            name: string;
+            name: Loba.AreaNames;
 
             nameX: number;
             nameY: number;
@@ -48,8 +66,14 @@ declare namespace Attrib {
         interface Reference {
             icon: string;
         }
+        interface GameTitle {
+            startGame: () => void;
+        }
     }
     namespace State {
+        interface Dialog {
+            show: boolean;
+        }
         interface Menu {
             active: boolean;
         }
@@ -70,6 +94,26 @@ declare namespace Attrib {
         }
         interface Index {
             viewInfoName?: Loba.AreaNames;
+        }
+        interface SpaceBackground {
+            x: number;
+            y: number;
+        }
+        interface Connellow {
+            inGame: boolean;
+        }
+        interface Game {
+            lv: number;
+        }
+        interface DialogRenderer {
+            dialogs: JSX.Element[];
+        }
+        interface Stages {
+            currentSelection: Loba.AreaNames;
+        }
+        interface Stage {
+            selected: boolean;
+            index: number;
         }
     }
 }

@@ -10,13 +10,15 @@ import Universe from '../../Assets/Areas/universe.png';
 import Lourde from '../../Assets/Areas/lourde.png';
 import ArkCube from '../../Assets/Areas/arkcube.png';
 import OldLourde from '../../Assets/Areas/old_lourde.png';
+import Eden from '../../Assets/Areas/eden.png';
+
 
 import { TextTooltip, Tooltip } from '../Tooltip';
 import { changePage } from '../../Tools/PageRender';
 import L from '../../Tools/Language';
 
 
-export function WorldMapEntityName(name: string, x: number, y: number) {
+export function WorldMapEntityName(name: Loba.AreaNames, x: number, y: number) {
     return {
         name,
         nameX: x,
@@ -34,7 +36,7 @@ export class WorldMapEntity extends KKWAE<Attrib.Prop.WorldMapEntity, Attrib.Sta
     goToExplanationPage(target: string): void {
         changePage('areas')
     }
-    viewInfo(name: string): void {
+    viewInfo(name: Loba.AreaNames): void {
         KKWAE.trigger('@view-info', name)
     }
     render(){
@@ -60,6 +62,7 @@ export class WorldMap extends KKWAE {
         <WorldMapEntity {...WorldMapEntityName('우주', 300, 670)} x={340} y={630} w={30} h={30} img={Universe} desc="인류가 살고 있는 우주"/>,
         <WorldMapEntity {...WorldMapEntityName('로드', 540, 600)} x={540} y={500} w={100} h={100} img={Lourde} desc="멸망한 마력 얼음의 행성"/>,
         <WorldMapEntity {...WorldMapEntityName('아크 큐브', 740, 300)} x={740} y={200} w={100} h={100} img={ArkCube} desc="우주를 떠돌고 있는 기계"/>,
+        <WorldMapEntity {...WorldMapEntityName('에덴', 1100, 600)} x={940} y={200} w={440} h={450} img={Eden} desc="태초의 낙원"/>
     ];
     render(){
         return (

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default abstract class KKWAE<P = {}, S = {}> extends React.PureComponent<P, S> {
     public static Neuron: KKWAE.NeuronDatas = {
-        sp: 0,
+        lv: 1
     };
     private static CONNECTED_SYNAPSES: KKWAE.ConnectedSynapses = {};
     private static CONNECTED_ACTION_SYNAPSES: KKWAE.ConnectedActionSynapses = {};

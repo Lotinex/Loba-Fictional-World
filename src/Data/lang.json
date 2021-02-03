@@ -14,5 +14,7 @@
     "char_reversian_name": "리버시안",
     "char_reversian_desc": "등록된 설명이 없습니다.",
 
-    "goto_target_info": "클릭하여 {#0} 에 대한 설명으로 이동"
+    "goto_target_info": "클릭하여 {#0} 에 대한 설명으로 이동",
+
+    "stage_loading": "{#0}(으)로 유저님을 전송합니다.."
 }

@@ -4,12 +4,12 @@ import {changePage, render} from './Tools/PageRender';
 
 import Index from './Pages/Lobby';
 import Areas from './Pages/Areas';
-
-changePage('index')
+import Connellow from './Pages/Connellow';
 
 const PathTable = {
   'index': Index,
-  'areas': Areas
+  'areas': Areas,
+  'Connellow': Connellow
 };
 
 render(PathTable)

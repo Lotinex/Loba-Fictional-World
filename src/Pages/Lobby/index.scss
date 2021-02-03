@@ -2,7 +2,6 @@ html, body {
     min-height: 100%;
     padding: 0;
     margin: 0;
-    overflow: auto;
     background: black;
 }
 #stage {
@@ -13,7 +12,8 @@ html, body {
     width: 100%;
     height: 150px;
     border-bottom: 1px solid black;
-    background: rgb(43, 41, 41);
+    position: absolute;
+    z-index: 2;
 }
 .middle {
     height: 300px;
@@ -32,7 +32,7 @@ html, body {
     color: gold;
     text-shadow: 0px 0px 4px gold;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
     background: linear-gradient(90deg, transparent, black, black, transparent);
 }
 .areaInfo {
