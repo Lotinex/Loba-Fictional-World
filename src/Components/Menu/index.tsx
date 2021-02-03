@@ -5,6 +5,7 @@ import './menu.scss';
 import {boundClass} from 'autobind-decorator';
 import { TextTooltip, Tooltip } from "../Tooltip";
 import { changePage } from "../../Tools/PageRender";
+import { Dialog } from "../Dialog";
 
 
 const menuItems = [
@@ -32,8 +33,10 @@ export class Menu extends KKWAE<{}, Attrib.State.Menu> {
                 changePage('index')
                 break;
             case '등장인물':
+                Dialog.show(<Dialog title="접근 불가" width={250} height={100}>아직 개발되지 않은 구역입니다.</Dialog>)
                 break;
             case '설정 및 능력':
+                Dialog.show(<Dialog title="접근 불가" width={250} height={100}>아직 개발되지 않은 구역입니다.</Dialog>)
                 break;
             case '지역':
                 changePage('areas')
