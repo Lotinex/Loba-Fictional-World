@@ -1,0 +1,18 @@
+.transition-effect-mask {
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    pointer-events: none;
+    z-index: 30;
+}
+.transition-active {
+    animation: 500ms transitionEffect alternate;
+}
+@keyframes transitionEffect {
+    from {
+        background: transparent;
+    }
+    to {
+        background: black;
+    }
+}

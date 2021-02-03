@@ -66,3 +66,16 @@
     align-items: center;
     justify-content: center;
 }
+.dialog-ok {
+    display: inline-block;
+    background: rgba(22, 35, 209, 0.7);
+    border: 2px solid rgb(11, 18, 112);
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+.dialog-buttons {
+    display: flex;
+    padding: 5px;
+    float: right;
+}

@@ -20,5 +20,7 @@ declare namespace KKWAE {
         '@view-info': (name: Loba.AreaNames) => void;
         '@add-dialog': (dialog: JSX.Element) => void;
         '@update-stage-index': (targetIndex: number) => void;
+        '@into-stage': () => void;
+        '@transition': () => void;
     }>
 }

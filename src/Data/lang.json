@@ -16,5 +16,8 @@
 
     "goto_target_info": "클릭하여 {#0} 에 대한 설명으로 이동",
 
-    "stage_loading": "{#0}(으)로 유저님을 전송합니다.."
+    "stage_loading": "{#0}(으)로 유저님을 전송합니다..",
+
+    "stage_level_required": "{#0} 레벨 이상 필요",
+    "stage_lack_lv": "({#0} 만큼 모자랍니다.)"
 }

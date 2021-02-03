@@ -50,7 +50,7 @@ html, body {
     position: absolute;
     background: rgba(56,192,255,0.3);
     border-radius: 7px;
-    width: 500px;
+    width: 330px;
     height: 130px;
     bottom: 0;
     margin-left: 100px;
@@ -83,7 +83,7 @@ html, body {
     padding: 10px;
 }
 .pure-button {
-    width: 370px;
+    width: 200px;
     height: 50px;
     display: flex;
     align-items: center;
@@ -164,7 +164,7 @@ html, body {
     font-weight: bold;
     display: inline-block;
     font-size: 30px;
-    min-width: 170px;
+    min-width: 200px;
     background: linear-gradient(90deg, transparent,white,white, transparent);
     color: black;
 }
@@ -184,4 +184,81 @@ html, body {
     justify-content: center;
     align-items: center;
     background: rgba(45, 255, 209, 0.3);
+}
+.cannotgo {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+    border-radius: 20px;
+    height: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(16, 105, 86, 0.3);
+}
+.stage-locked {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.stage-locked > i {
+    color: white;
+    font-size: 25px;
+}
+.stage-lv-required {
+    color: white;
+    font-size: 20px;
+}
+.stage-lack-lv {
+    color: gray;
+}
+.active-menu {
+    position: absolute;
+    background: rgba(56,192,255,0.3);
+    border-radius: 7px;
+    width: 220px;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    margin-left: 500px;
+    margin-bottom: 70px;
+    padding: 15px;
+    display: flex;
+}
+.active-menu-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.shop {
+    background: rgba(255, 224, 48, 0.3);
+    width: 150px;
+}
+.practice {
+    background: rgba(255, 42, 42, 0.3);
+    width: 150px;
+    margin-top: 10px;
+}
+.active-menu-head {
+    padding-right: 5px;
+    border-right: 2px solid rgba(56,192,255,0.5);
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.active-menu-head > i {
+    color: white;
+    font-size: 25px;
 }

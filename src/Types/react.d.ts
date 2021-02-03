@@ -5,16 +5,22 @@ declare namespace Attrib {
         interface SpaceBackground {
             distance: number;
         }
+        interface DialogOKButton {
+            closeDialog: () => void;
+        }
         interface Stage {
             img: string;
             name: Loba.AreaNames;
             index: number;
-            changeSelectedStage: (stage: Loba.AreaNames) => void;
+            changeSelectedStage: (stage: Loba.AreaNames, reqLv: number) => void;
+            reqLv: number;
         }
         interface Dialog {
             title: string;
             width: number;
             height: number;
+            hasOK?: boolean;
+            onOK?: () => void;
         }
         interface PureButton {
             className: string;
@@ -71,6 +77,9 @@ declare namespace Attrib {
         }
     }
     namespace State {
+        interface TransitionEffect {
+            active: boolean;
+        }
         interface Dialog {
             show: boolean;
         }
@@ -104,12 +113,14 @@ declare namespace Attrib {
         }
         interface Game {
             lv: number;
+            inStage: boolean;
         }
         interface DialogRenderer {
             dialogs: JSX.Element[];
         }
         interface Stages {
             currentSelection: Loba.AreaNames;
+            cannotGo: boolean;
         }
         interface Stage {
             selected: boolean;

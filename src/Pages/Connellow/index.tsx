@@ -7,7 +7,7 @@ import KKWAE from '../../Tools/KKWAE';
 import './index.scss';
 
 import Char from '../../Assets/Connellow/char.png';
-import { Dialog, DialogRenderer } from '../../Components/Dialog';
+import { Dialog, DialogOKButton, DialogRenderer } from '../../Components/Dialog';
 
 
 import LobaPlanet from '../../Assets/Areas/loba_planet.png';
@@ -19,6 +19,7 @@ import Eden from '../../Assets/Areas/eden.png';
 import OldLourde from '../../Assets/Areas/old_lourde.png';
 import L from '../../Tools/Language';
 import Util from '../../Tools/Util';
+import { TransitionEffect } from '../../Components/TransitionEffect';
 
 @boundClass
 class GameTitle extends KKWAE<Attrib.Prop.GameTitle> {
@@ -52,7 +53,7 @@ class Stage extends KKWAE<Attrib.Prop.Stage, Attrib.State.Stage> {
     select(): void {
         this.setState({selected: true, index: 0})
         KKWAE.trigger('@update-stage-index', this.state.index)
-        this.props.changeSelectedStage(this.props.name)
+        this.props.changeSelectedStage(this.props.name, this.props.reqLv)
     }
     render(){
         return (
@@ -66,7 +67,18 @@ class Stage extends KKWAE<Attrib.Prop.Stage, Attrib.State.Stage> {
                 }} 
                 onClick={this.select}
             >
-                <img className={`stage-img`} src={this.props.img}/>
+                <img className={`stage-img`} src={this.props.img} style={{
+                    filter: `brightness(${KKWAE.Neuron.lv! < this.props.reqLv ? 0.25 : 1})`
+                }}/>
+                {
+                    KKWAE.Neuron.lv! < this.props.reqLv ? 
+                    <div className="stage-locked">
+                        <i className="fas fa-lock" />
+                        <div className="stage-lv-required">{L.process("stage_level_required", this.props.reqLv.toString())}</div>
+                        <div className="stage-lack-lv">{L.process("stage_lack_lv", (this.props.reqLv - KKWAE.Neuron.lv!).toString())}</div>
+                    </div> 
+                    : null 
+                }
                 <div className={`stage-name ${this.state.index == 0 ? `stage-name-selected` : ``}`}>{this.props.name}</div>
             </div>
         )
@@ -75,27 +87,35 @@ class Stage extends KKWAE<Attrib.Prop.Stage, Attrib.State.Stage> {
 @boundClass
 class Stages extends KKWAE<{}, Attrib.State.Stages> {
     state: Attrib.State.Stages = {
-        currentSelection: '로바계'
+        currentSelection: '로바계',
+        cannotGo: false,
     };
     static stageNumber = 6;
     stageStart(): void {
-        Dialog.show(<Dialog title="전송 중" width={300} height={150}>{L.process('stage_loading', this.state.currentSelection)}</Dialog>)
+        if(this.state.cannotGo) return;
+        Dialog.show(
+            <Dialog hasOK title="전송 중" width={300} height={130} onOK={() => TransitionEffect.do()}>
+                {L.process('stage_loading', this.state.currentSelection)}
+            </Dialog>
+        )
     }
-    changeSelectedStage(stage: Loba.AreaNames): void {
+    changeSelectedStage(stage: Loba.AreaNames, reqLv: number): void {
         this.setState({currentSelection: stage})
+        if(KKWAE.Neuron.lv! < reqLv) this.setState({cannotGo: true})
+        else this.setState({cannotGo: false})
     }
     render(){
         return (
             <div className="stages">
-                <Stage img={LobaPlanet} name="로바계" index={0} changeSelectedStage={this.changeSelectedStage}/>
-                <Stage img={Reverse} name="리버스" index={1} changeSelectedStage={this.changeSelectedStage}/>
-                <Stage img={Universe} name="우주" index={2} changeSelectedStage={this.changeSelectedStage}/>
-                <Stage img={Lourde} name="로드" index={-1} changeSelectedStage={this.changeSelectedStage}/>
-                <Stage img={ArkCube} name="아크 큐브" index={-2} changeSelectedStage={this.changeSelectedStage}/>
-                <Stage img={Eden} name="에덴" index={3} changeSelectedStage={this.changeSelectedStage}/>
-                <Stage img={OldLourde} name="과거의 로드" index={-3} changeSelectedStage={this.changeSelectedStage}/>
+                <Stage reqLv={1} img={LobaPlanet} name="로바계" index={0} changeSelectedStage={this.changeSelectedStage}/>
+                <Stage reqLv={1} img={Reverse} name="리버스" index={1} changeSelectedStage={this.changeSelectedStage}/>
+                <Stage reqLv={1}img={Universe} name="우주" index={2} changeSelectedStage={this.changeSelectedStage}/>
+                <Stage reqLv={25}img={Lourde} name="로드" index={-1} changeSelectedStage={this.changeSelectedStage}/>
+                <Stage reqLv={1} img={ArkCube} name="아크 큐브" index={-2} changeSelectedStage={this.changeSelectedStage}/>
+                <Stage reqLv={999}img={Eden} name="에덴" index={3} changeSelectedStage={this.changeSelectedStage}/>
+                <Stage reqLv={100} img={OldLourde} name="과거의 로드" index={-3} changeSelectedStage={this.changeSelectedStage}/>
 
-                <div className="pure-button go" onClick={this.stageStart}><i className="fas fa-check" />여기로 선택!</div>
+                <div className={`pure-button ${this.state.cannotGo ? "cannotgo" : "go"}`} onClick={this.stageStart}><i className={`fas fa-${this.state.cannotGo ? "lock" : "check"}`} />{this.state.cannotGo ? "여기로는 갈 수 없습니다." : "여기로 선택!"}</div>
             </div>
         )
     }
@@ -111,6 +131,7 @@ class PureButton extends KKWAE<Attrib.Prop.PureButton> {
         )
     }
 }
+@boundClass
 class Profile extends KKWAE {
     render(){
         return (
@@ -130,6 +151,19 @@ class Profile extends KKWAE {
         )
     }
 }
+class ActiveMenu extends KKWAE {
+    render(){
+        return (
+            <div className="active-menu">
+                <div className="active-menu-head"><i className="fas fa-compass" /></div>
+                <div className="active-menu-buttons">
+                    <PureButton className="shop" icon="store">상점</PureButton>
+                    <PureButton className="practice" icon="infinity">연습</PureButton>
+                </div>
+            </div>
+        )
+    }
+}
 @boundClass
 class Game extends KKWAE {
     render(){
@@ -137,6 +171,7 @@ class Game extends KKWAE {
             <div className="game">
                 <div className="stages-title">스테이지를 선택하세요.</div>
                 <Stages />
+                <ActiveMenu />
                 <Profile />
             </div>
         )
@@ -156,6 +191,7 @@ export default class Connellow extends KKWAE<{}, Attrib.State.Connellow> {
     render(){
         return (
             <>
+                <TransitionEffect/>
                 <Menu />
                 <TooltipRenderer />
                 <DialogRenderer />

@@ -12,6 +12,10 @@ export class Dialog extends KKWAE<Attrib.Prop.Dialog, Attrib.State.Dialog> {
     close(): void {
         this.setState({show: false})
     }
+    OKclose(): void {
+        this.close()
+        this.props.onOK!()
+    }
     static show(dialog: JSX.Element): void {
         KKWAE.trigger('@add-dialog', dialog)
     }
@@ -26,8 +30,17 @@ export class Dialog extends KKWAE<Attrib.Prop.Dialog, Attrib.State.Dialog> {
                 <div className="dialog-body">
                     {this.props.children}
                 </div>
+                <div className="dialog-buttons">{this.props.hasOK ? <DialogOKButton closeDialog={this.OKclose} /> : null}</div>
             </div>
             : null
+        )
+    }
+}
+@boundClass
+export class DialogOKButton extends KKWAE<Attrib.Prop.DialogOKButton> {
+    render(){
+        return (
+            <div className="dialog-ok" onClick={this.props.closeDialog}>확인</div>
         )
     }
 }
