@@ -1,6 +1,9 @@
 html, body {
     overflow: auto;
 }
+#stage {
+    overflow: hidden;
+}
 .game-title-body {
     position: absolute;
     width: 100%;

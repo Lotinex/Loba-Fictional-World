@@ -14,6 +14,7 @@ import Reversian from '../../Assets/Characters/reversian.png';
 
 import L from '../../Tools/Language';
 import { CharacterReference } from '../../Components/Reference';
+import Util from '../../Tools/Util';
 
 export class AreaAssociatedChar extends KKWAE<Attrib.Prop.AreaAssociatedChar> {
     render(){
@@ -65,6 +66,9 @@ export class Area extends KKWAE<Attrib.Prop.Area, Attrib.State.Area> {
     }
 }
 export default class Areas extends KKWAE {
+    componentDidMount(){
+        Util.setPageOverflow()
+    }
     render(){
         return (
             <>

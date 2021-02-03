@@ -18,6 +18,7 @@ import ArkCube from '../../Assets/Areas/arkcube.png';
 import Eden from '../../Assets/Areas/eden.png';
 import OldLourde from '../../Assets/Areas/old_lourde.png';
 import L from '../../Tools/Language';
+import Util from '../../Tools/Util';
 
 @boundClass
 class GameTitle extends KKWAE<Attrib.Prop.GameTitle> {
@@ -148,6 +149,9 @@ export default class Connellow extends KKWAE<{}, Attrib.State.Connellow> {
     };
     startGame(): void {
         this.setState({inGame: true})
+    }
+    componentDidMount(): void {
+        Util.setPageOverflow(false)
     }
     render(){
         return (
