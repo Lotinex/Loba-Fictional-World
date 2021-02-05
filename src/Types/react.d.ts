@@ -1,7 +1,18 @@
 declare module '*.png';
+declare module '*.jpg';
 declare module '*.mp3';
 declare namespace Attrib {
     namespace Prop {
+        interface ItemTag {
+            color: string;
+        }
+        interface InventoryItem {
+            img: string;
+            name: string;
+            desc: string;
+            tags: JSX.Element[];
+            //stats: JSX.Element[];
+        }
         interface SpaceBackground {
             distance: number;
         }
@@ -25,6 +36,7 @@ declare namespace Attrib {
         interface PureButton {
             className: string;
             icon: string;
+            onClick?: (e: React.MouseEvent) => void;
         }
         interface AreaProperty {
             property: string;
@@ -46,6 +58,16 @@ declare namespace Attrib {
                 img: string;
                 desc: string;
                 name: string;
+            }
+        }
+        interface ItemTooltip {
+            x: number;
+            y: number;
+            data: {
+                img: string;
+                desc: string;
+                name: string;
+                tags: JSX.Element[];
             }
         }
         interface WorldMapEntity {

@@ -8,6 +8,11 @@ type TooltipDataFormat = {
     desc: string;
     img: string;
     name: string;
+} | {
+    desc: string;
+    img: string;
+    name: string;
+    tags: JSX.Element[];
 } | string;
 export abstract class Tooltip<P = {}, S = {}> extends KKWAE<P, S> {
     static register(tooltip: TypeUtil.ClassType<Tooltip>, value: TooltipDataFormat): {onMouseMove: (e: React.MouseEvent) => void, onMouseEnter: () => void, onMouseLeave: () => void} {
@@ -41,6 +46,27 @@ export class CharacterTooltip extends Tooltip<Attrib.Prop.CharacterTooltip> {
                     <div className="characterTooltip-desc">{this.props.data.desc}</div>
                 </div>
                 <div className="characterTooltip-moreInfo">{L.process('goto_target_info', this.props.data.name)}</div>
+            </div>
+        )
+    }
+}
+export class ItemTooltip extends Tooltip<Attrib.Prop.ItemTooltip> {
+    render(){
+        return (
+            <div className="tooltip itemTooltip" style={{left: `${this.props.x + 10}px`, top: `${this.props.y + 10}px`}}>
+                <div className="itemTooltip-head">
+                    <img className="itemTooltip-img" src={this.props.data.img} />
+                    <div className="itemTooltip-titleInfo">
+                        <div className="itemTooltip-name">{this.props.data.name}</div>
+                        <div className="itemTooltip-tags">{this.props.data.tags}</div>
+                    </div>
+                </div>
+                <div className="itemTootip-stats">
+                    
+                </div>
+                <div className="itemTooltip-body">
+                    {this.props.data.desc}
+                </div>
             </div>
         )
     }

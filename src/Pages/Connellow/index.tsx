@@ -20,6 +20,7 @@ import OldLourde from '../../Assets/Areas/old_lourde.png';
 import L from '../../Tools/Language';
 import Util from '../../Tools/Util';
 import { TransitionEffect } from '../../Components/TransitionEffect';
+import { Inventory } from '../../Components/Inventory';
 
 @boundClass
 class GameTitle extends KKWAE<Attrib.Prop.GameTitle> {
@@ -124,7 +125,7 @@ class Stages extends KKWAE<{}, Attrib.State.Stages> {
 class PureButton extends KKWAE<Attrib.Prop.PureButton> {
     render(){
         return (
-            <div className={`pure-button ${this.props.className}`}>
+            <div className={`pure-button ${this.props.className}`} onClick={this.props.onClick}>
                 <i className={`fas fa-${this.props.icon}`} />
                 {this.props.children}
             </div>
@@ -133,6 +134,9 @@ class PureButton extends KKWAE<Attrib.Prop.PureButton> {
 }
 @boundClass
 class Profile extends KKWAE {
+    openInventory(): void {
+        Dialog.show(<Inventory />)
+    }
     render(){
         return (
             <div className="profile">
@@ -144,7 +148,7 @@ class Profile extends KKWAE {
                     </div>
                 </div>
                 <div className="profile-body">
-                    <PureButton className="open-inventory" icon="archive">보관함</PureButton>
+                    <PureButton className="open-inventory" icon="archive" onClick={this.openInventory}>보관함</PureButton>
                     <PureButton className="open-skills" icon="book">스킬</PureButton>
                 </div>
             </div>
@@ -180,7 +184,7 @@ class Game extends KKWAE {
 @boundClass
 export default class Connellow extends KKWAE<{}, Attrib.State.Connellow> {
     state: Attrib.State.Connellow = {
-        inGame: false
+        inGame: true
     };
     startGame(): void {
         this.setState({inGame: true})
@@ -192,8 +196,8 @@ export default class Connellow extends KKWAE<{}, Attrib.State.Connellow> {
         return (
             <>
                 <TransitionEffect/>
-                <Menu />
                 <TooltipRenderer />
+                <Menu />
                 <DialogRenderer />
                 <div className="game">
                     {!this.state.inGame ? <GameTitle startGame={this.startGame}/> : <Game />}
